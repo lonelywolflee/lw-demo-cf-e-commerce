@@ -1,0 +1,26 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "orange-market",
+	"main": "src/index.ts",
+	"compatibility_date": "2026-11-23",
+	"assets": {
+		"directory": "./public",
+		"binding": "ASSETS",
+		"run_worker_first": [
+			"/api/*"
+		]
+	},
+	"observability": {
+		"enabled": true
+	},
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "orange-market-db"
+		}
+	],
+	// ▼ 블록 A (3단계): 아래 줄 맨 앞의 // 를 지우세요
+	// "ai": { "binding": "AI" },
+	// ▼ 블록 B (4단계): 아래 줄 맨 앞의 // 를 지우세요
+	// "ai_search": [{ "binding": "SEARCH", "instance_name": "orange-search" }],
+}
