@@ -1,0 +1,64 @@
+[
+  {
+    "id": "orange-hoodie",
+    "name": "오렌지 후디",
+    "category": "의류",
+    "price": 59000,
+    "description": "도톰한 기모 안감의 오렌지색 후디. 가슴에 작은 구름 자수가 있습니다.",
+    "emoji": "🧥",
+    "options": { "size": ["S", "M", "L", "XL"] },
+    "stock": 24,
+    "featured": true
+  },
+  {
+    "id": "cloud-mug",
+    "name": "클라우드 머그",
+    "category": "주방",
+    "price": 14000,
+    "description": "350ml 도자기 머그. 따뜻한 음료를 담으면 구름 무늬가 나타납니다.",
+    "emoji": "☕",
+    "stock": 80,
+    "featured": true
+  },
+  {
+    "id": "orange-ecobag",
+    "name": "오렌지 에코백",
+    "category": "가방",
+    "price": 12000,
+    "description": "노트북이 들어가는 두꺼운 캔버스 에코백. 안쪽에 작은 주머니가 있습니다.",
+    "emoji": "👜",
+    "stock": 50,
+    "featured": false
+  },
+  {
+    "id": "sticker-pack",
+    "name": "스티커 팩",
+    "category": "문구",
+    "price": 5000,
+    "description": "노트북에 붙이기 좋은 방수 스티커 10종 세트.",
+    "emoji": "🏷️",
+    "stock": 200,
+    "featured": false
+  },
+  {
+    "id": "keycap-set",
+    "name": "키캡 세트",
+    "category": "데스크",
+    "price": 28000,
+    "description": "기계식 키보드용 오렌지 포인트 키캡 4개. Esc, Enter, 방향키에 어울립니다.",
+    "emoji": "⌨️",
+    "stock": 15,
+    "featured": false
+  },
+  {
+    "id": "laptop-pouch",
+    "name": "노트북 파우치",
+    "category": "가방",
+    "price": 32000,
+    "description": "충격을 흡수하는 도톰한 파우치. 충전기를 넣는 앞주머니가 있습니다.",
+    "emoji": "💼",
+    "options": { "size": ["13인치", "15인치"] },
+    "stock": 30,
+    "featured": false
+  }
+]

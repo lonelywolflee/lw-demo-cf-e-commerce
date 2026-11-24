@@ -1,0 +1,244 @@
+/* 오렌지마켓 디자인.
+   맨 위의 변수(디자인 토큰)만 바꿔도 상점 분위기가 바뀝니다.
+   색 네 가지는 app.js가 seed/shop.json의 theme 값으로 덮어씁니다. */
+:root {
+  --color-primary: #f6821f; /* 버튼, 가격, 강조 */
+  --color-accent: #1f2937; /* 머리글, 배지 */
+  --color-background: #fff8f1; /* 페이지 배경 */
+  --color-text: #1f2937; /* 본문 글자 */
+
+  --color-card: #ffffff; /* 상품 카드 배경. 어두운 테마라면 배경보다 조금 밝은 색으로 바꾸세요 */
+  --color-on-primary: #1f2937; /* primary 색 위에 올라가는 글자 (상점 소개, 버튼). primary가 어두우면 밝은 색으로 바꾸세요 */
+  /* 아래 둘은 글자색(--color-text)에서 자동으로 만들어집니다. 밝은 테마든 어두운 테마든 그대로 두면 됩니다. */
+  --color-muted: color-mix(in srgb, var(--color-text) 60%, transparent); /* 흐린 글자 */
+  --color-line: color-mix(in srgb, var(--color-text) 12%, transparent); /* 테두리 */
+
+  --radius: 16px; /* 모서리 둥글기 */
+  --gap: 20px; /* 카드 사이 간격 */
+  --shadow: 0 2px 12px color-mix(in srgb, var(--color-text) 8%, transparent);
+
+  --font: system-ui, -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+}
+
+/* seed/shop.json의 theme.font 값마다 글꼴 묶음이 하나씩 있습니다. 외부 폰트는 쓰지 않습니다. */
+:root[data-font="sans"] {
+  --font: system-ui, -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+}
+:root[data-font="serif"] {
+  --font: "Iowan Old Style", "Apple SD Gothic Neo", "Nanum Myeongjo", "Batang", Georgia, serif;
+}
+:root[data-font="mono"] {
+  --font: ui-monospace, "SF Mono", "D2Coding", Menlo, Consolas, monospace;
+}
+:root[data-font="rounded"] {
+  --font: ui-rounded, "SF Pro Rounded", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  color: var(--color-text);
+  background: var(--color-background);
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+main {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 24px 64px;
+}
+
+h2 {
+  margin: 48px 0 16px;
+  font-size: 1.25rem;
+}
+
+/* 머리글 */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 20px 24px;
+}
+.brand {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+.badge {
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  color: var(--color-background);
+  background: var(--color-accent);
+}
+.header-side {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.back {
+  color: var(--color-muted);
+}
+
+/* 상점 소개 */
+.hero {
+  padding: 56px 32px;
+  border-radius: calc(var(--radius) * 1.5);
+  color: var(--color-on-primary);
+  background: var(--color-primary);
+}
+.hero h1 {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.2;
+}
+.tagline {
+  margin: 12px 0 0;
+  font-size: 1.2rem;
+}
+.concept {
+  margin: 4px 0 0;
+}
+
+/* 상품 카드 */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--gap);
+}
+.grid-featured {
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+.card {
+  display: block;
+  overflow: hidden;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  background: var(--color-card);
+  box-shadow: var(--shadow);
+  transition: translate 0.15s ease;
+}
+.card:hover {
+  translate: 0 -3px; /* transform과 따로 움직여서, 카드를 rotate로 기울여도 겹치지 않습니다 */
+}
+.card-image,
+.detail-image {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 4 / 3;
+  font-size: 4rem;
+  background: color-mix(in srgb, var(--color-primary) 14%, var(--color-card));
+}
+.card-body {
+  padding: 16px;
+}
+.card-body h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+.category {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--color-muted);
+}
+.price {
+  margin: 6px 0 0;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+.soldout {
+  margin-left: 8px;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--color-muted);
+}
+
+/* 상품 상세 */
+.detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 24px;
+}
+.detail[hidden] {
+  display: none;
+}
+.detail-image {
+  border-radius: var(--radius);
+  font-size: 7rem;
+}
+.detail-body h1 {
+  margin: 4px 0 0;
+}
+.detail-body .price {
+  font-size: 1.5rem;
+}
+.option {
+  margin: 16px 0 0;
+}
+.option-label {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+.chip {
+  display: inline-block;
+  margin: 4px 6px 0 0;
+  padding: 4px 12px;
+  border: 1px solid var(--color-line);
+  border-radius: 999px;
+  font-size: 0.9rem;
+  background: var(--color-card);
+}
+.stock {
+  color: var(--color-muted);
+}
+.button {
+  padding: 12px 20px;
+  border: 0;
+  border-radius: var(--radius);
+  font: inherit;
+  font-weight: 700;
+  color: var(--color-on-primary);
+  background: var(--color-primary);
+  cursor: pointer;
+}
+
+/* 안내 문구와 바닥글 */
+.message {
+  margin-top: 48px;
+  padding: 16px;
+  border-radius: var(--radius);
+  text-align: center;
+  background: var(--color-card);
+  border: 1px solid var(--color-line);
+}
+.site-footer {
+  padding: 32px 24px 96px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  border-top: 1px solid var(--color-line);
+}
+.site-footer p {
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .detail {
+    grid-template-columns: 1fr;
+  }
+  .hero {
+    padding: 40px 24px;
+  }
+}

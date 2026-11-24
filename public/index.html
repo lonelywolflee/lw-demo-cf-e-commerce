@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>오렌지마켓</title>
+    <link rel="stylesheet" href="/assets/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/">🍊 <span data-shop="name">오렌지마켓</span></a>
+      <span class="badge">오렌지마켓 입점 상점</span>
+    </header>
+
+    <main>
+      <section class="hero">
+        <h1 data-shop="name">오렌지마켓</h1>
+        <p class="tagline" data-shop="tagline"></p>
+        <p class="concept" data-shop="concept"></p>
+      </section>
+
+      <section>
+        <h2>추천 상품</h2>
+        <div id="featured-list" class="grid grid-featured"></div>
+      </section>
+
+      <section>
+        <h2>전체 상품</h2>
+        <div id="product-list" class="grid"></div>
+      </section>
+
+      <p id="message" class="message" hidden></p>
+    </main>
+
+    <footer class="site-footer">
+      <p>궁금한 점은 오른쪽 아래 상담 버튼으로 물어보세요.</p>
+      <p>배송·환불·멤버십은 오렌지마켓 공통 규정을 따릅니다.</p>
+    </footer>
+
+    <div id="chat-root"></div>
+    <script src="/assets/app.js" defer></script>
+    <script src="/assets/chat-widget.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "name": "오렌지마켓 굿즈샵",
+  "tagline": "개발자의 책상을 오렌지색으로 채우는 굿즈",
+  "concept": "오렌지마켓 공식 굿즈를 파는 밝고 산뜻한 상점",
+  "theme": {
+    "primary": "#F6821F",
+    "accent": "#1F2937",
+    "background": "#FFF8F1",
+    "text": "#1F2937",
+    "font": "sans"
+  }
+}
