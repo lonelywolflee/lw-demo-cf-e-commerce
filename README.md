@@ -52,6 +52,10 @@ npm run deploy
 
 4단계에서 AI 상담원이 근거로 삼을 오렌지마켓 공통 규정 5종([docs/policies/](docs/policies/))을 지금 내 계정에 올려 둡니다. 문서를 색인하는 데 2분쯤 걸려서 미리 해 두는 것입니다.
 
+먼저 AI Search가 R2의 문서를 읽을 때 쓰는 **서비스 API 토큰**을 만듭니다. 계정마다 한 번만 하면 됩니다. [Cloudflare 대시보드](https://dash.cloudflare.com)에서 **AI > AI Search**로 들어가 **API Tokens** 화면을 엽니다(주소는 `https://dash.cloudflare.com/<Account ID>/ai/ai-search/tokens`). **No API tokens found**가 보이면 **Create Token**을 눌러 토큰을 만들고, 목록에 하나 보이면 됩니다. 이미 토큰이 있으면 건너뜁니다. 이 토큰을 지우면 색인이 멈추니 삭제하지 마세요.
+
+그다음 문서를 올립니다.
+
 ```bash
 npm run setup:docs
 ```
@@ -184,6 +188,7 @@ npm run deploy
 | 블록이 두 파일에서 다르다는 메시지 | `wrangler.jsonc`와 `src/chat.ts`에서 같은 블록을 둘 다 풀어야 합니다. 블록 B는 블록 A가 켜져 있어야 합니다 |
 | 블록 B를 풀었더니 배포가 실패한다 (`instance 'orange-search' ... was not found`) | 내 계정에 AI Search `orange-search`가 없는 경우입니다. `npm run setup:docs` 후 다시 배포하세요 |
 | 4단계에서 정책 질문에 "상담원이 안내해 드리겠습니다"만 나온다 | 색인이 아직 안 끝났을 수 있습니다. `./ops/verify.sh`로 확인하고, 끝나면 다시 물어보세요 |
+| `npm run setup:docs`가 서비스 API 토큰이 없다며 멈춘다 (`No AI Search API token found`) | 출력에 나온 주소(대시보드 > AI > AI Search > API Tokens)에서 **Create Token**으로 토큰을 만든 뒤 다시 실행하세요 |
 | `npm run setup:docs`가 계정이 여러 개라며 멈춘다 | 출력에 나온 계정 목록에서 쓸 계정의 id로 `export CLOUDFLARE_ACCOUNT_ID=<id>` 후 다시 실행하세요 |
 | `wrangler whoami`가 로그인 안 됨 | `npx wrangler login` (원격 환경이면 `--device`를 붙이세요) |
 | 처음부터 다시 하고 싶다 | `git restore public seed src wrangler.jsonc` 후 `npm run deploy` |

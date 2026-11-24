@@ -7,7 +7,7 @@ README 4단계(블록 B)는 계정에 아래 두 리소스가 **이미 있어야
 | R2 버킷 | `orange-docs` | `docs/policies/*.md` 5종 |
 | AI Search 인스턴스 | `orange-search` | 데이터 소스 = R2 `orange-docs`, `default` namespace |
 
-**README 1단계에서 `npm run setup:docs`로 만듭니다.** 이 명령은 `./ops/setup-account.sh`를 실행합니다. 로그인한 wrangler로 돌기 때문에 토큰이 필요 없고, 색인은 2분쯤 걸려 4단계 전에 끝납니다.
+**README 1단계에서 `npm run setup:docs`로 만듭니다.** 이 명령은 `./ops/setup-account.sh`를 실행합니다. 로그인한 wrangler로 돌기 때문에 Cloudflare API 토큰을 따로 넣을 필요가 없고, 색인은 2분쯤 걸려 4단계 전에 끝납니다. 다만 계정에 **AI Search 서비스 API 토큰**은 한 번 만들어 두어야 합니다(아래 준비물).
 
 아래는 스크립트를 직접 실행하거나, 여러 계정을 한 번에 준비할 때의 안내입니다.
 
@@ -15,6 +15,7 @@ README 4단계(블록 B)는 계정에 아래 두 리소스가 **이미 있어야
 
 - Node.js 22 이상, 이 레포에서 `npm ci`
 - `npx wrangler login`으로 로그인 (원격 컨테이너나 SSH 환경이면 `npx wrangler login --device`)
+- 대상 계정의 **AI Search 서비스 API 토큰**. 대시보드 **AI > AI Search > API Tokens**에서 **Create Token**으로 계정당 한 번 만듭니다. 이미 있으면 건너뜁니다
 - 로그인한 사용자에게 계정이 여러 개면 대상 계정의 **Account ID**. 스크립트가 계정 목록을 보여 주고 멈추니 그중 하나를 `CLOUDFLARE_ACCOUNT_ID`로 넣습니다
 - 여러 계정을 한 번에 준비할 때만: 계정마다 **API 토큰** — 권한: Account > Workers R2 Storage: Edit, Account > AI Search: Edit, Account > AI Search: Run
 
@@ -37,7 +38,7 @@ npx wrangler r2 object put orange-docs/shipping.md --file docs/policies/shipping
 npx wrangler ai-search create orange-search --type r2 --source orange-docs
 ```
 
-> 계정에서 R2를 데이터 소스로 쓰는 AI Search 인스턴스를 처음 만들 때는 AI Search용 service API token이 필요합니다. 대시보드나 Wrangler로 만들면 자동으로 등록됩니다. REST API로 직접 만들 때는 [Service API token](https://developers.cloudflare.com/ai-search/configuration/indexing/service-api-token/)을 먼저 등록해야 합니다.
+> R2를 데이터 소스로 쓰는 AI Search 인스턴스를 만들려면 계정에 AI Search용 [서비스 API 토큰](https://developers.cloudflare.com/ai-search/configuration/indexing/service-api-token/)이 등록되어 있어야 합니다. 계정에 하나만 있으면 모든 인스턴스가 같이 씁니다. **`wrangler ai-search create`(4.166.0)는 이 토큰을 만들지 않습니다.** 토큰이 없는 계정에서는 `No AI Search API token found`로 멈추고, `setup-account.sh`는 토큰을 만드는 화면 주소를 안내한 뒤 끝납니다. 대시보드 **AI > AI Search > API Tokens**에서 **Create Token**으로 한 번 만들고 다시 실행하세요. 대시보드에서 인스턴스를 직접 만든 적이 있는 계정에는 이미 토큰이 있습니다.
 
 ## 확인하기
 

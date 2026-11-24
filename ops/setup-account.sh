@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # 한 계정에 R2 버킷과 AI Search 인스턴스를 준비합니다. 여러 번 실행해도 됩니다.
 #   R2 orange-docs 생성 → docs/policies/*.md 업로드 → AI Search orange-search 생성
+#   AI Search를 만들려면 계정에 AI Search 서비스 API 토큰이 있어야 합니다 (대시보드 > AI > AI Search > API Tokens)
 set -euo pipefail
 source "$(dirname "$0")/common.sh"
 
@@ -28,7 +29,20 @@ if instance_exists; then
   # 문서가 바뀌었을 수 있으니 색인을 다시 요청합니다. 최근에 색인했으면 거절될 수 있는데, 그래도 괜찮습니다.
   wr ai-search jobs create "$INSTANCE" >/dev/null 2>&1 && echo "✓ 색인을 다시 요청했습니다" || echo "· 색인 재요청은 건너뜀 (방금 색인했거나 진행 중)"
 else
-  quiet wr ai-search create "$INSTANCE" --type r2 --source "$BUCKET"
+  # R2를 읽는 AI Search 서비스 토큰이 계정에 없으면 wrangler가 만들지 못하고 멈춥니다.
+  # 그 경우에는 대시보드에서 토큰을 만드는 방법을 안내합니다.
+  if ! output=$(wr ai-search create "$INSTANCE" --type r2 --source "$BUCKET" 2>&1); then
+    if echo "$output" | grep -q "No AI Search API token found"; then
+      url=$(echo "$output" | grep -o 'https://dash.cloudflare.com/[^ ]*/ai/ai-search/tokens' | head -1)
+      echo "✗ 이 계정에는 AI Search가 R2를 읽을 때 쓰는 서비스 API 토큰이 아직 없습니다." >&2
+      echo "  1. 브라우저에서 아래 주소를 열고 Create Token을 눌러 토큰을 만드세요 (계정당 한 번만 하면 됩니다)" >&2
+      echo "     ${url:-대시보드 > AI > AI Search > API Tokens}" >&2
+      echo "  2. 이 명령을 다시 실행하세요. 이미 만든 R2 버킷과 문서는 그대로 이어서 씁니다" >&2
+    else
+      echo "$output" >&2
+    fi
+    exit 1
+  fi
   echo "✓ AI Search ${INSTANCE}를 만들었습니다 (데이터 소스: R2 ${BUCKET})"
 fi
 
