@@ -24,7 +24,7 @@ const ALLOWED = [
 ];
 
 // 검사하지 않는 것: 설치·실행 중에 생기는 파일과 편집기·AI 도구의 설정 폴더
-const IGNORED_DIRS = [".git", "node_modules", ".wrangler", ".claude", ".cursor", ".vscode", ".idea"];
+const IGNORED_DIRS = [".git", "node_modules", ".wrangler", ".claude", ".cursor", ".kilo", ".vscode", ".idea"];
 const IGNORED_FILES = ["ops/accounts.csv", ".dev.vars", "worker-configuration.d.ts", LOCK_PATH];
 const IGNORED_NAMES = [".DS_Store"];
 

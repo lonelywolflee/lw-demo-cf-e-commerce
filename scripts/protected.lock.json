@@ -1,7 +1,7 @@
 {
   "version": 1,
   "files": {
-    ".gitignore": "87e87597564938fa3a2532e9f737382654e6cc34091bfaa66d59233c2d192998",
+    ".gitignore": "6b4a9a7c200408e0023f4cf049928291748a1e7d835cb9e8695c72cf0d6cac3d",
     "AGENTS.md": "9264c3b13707fbfc7c01264b5614dd9a30ba7c856d2e89ea885d21a1172be9af",
     "ARCHITECTURE.md": "e72b388250653eff638a83686688255f5679bc0d0c9c5df8523c44a4f5564527",
     "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
@@ -23,7 +23,7 @@
     "package-lock.json": "ee86a000d240637c70e9d7b42229b2d87c5910950514e9258cced974bfb6f523",
     "package.json": "7c71aa3e82203bdda886dae69926c538ca64002df6c16b36fd2304c7e44a1673",
     "public/assets/chat-widget.js": "c7a06648f5dbf16de5207e4c1881e8e8e9304c48da314cf013071e8c3fb0b400",
-    "scripts/check.mjs": "0e5fa013508a8193ca2875f0303c4b66dc61f58a1f93146b1d86cc5676784201",
+    "scripts/check.mjs": "018201aa15f402edd74d36544bd17d0c4dd36cad01bae8557bc23539f8d7647d",
     "scripts/lib/validate.mjs": "c4ab41483b92c4ceb9dd23637abe15dd0bbbae48cf44f350c11df8e4f9c5944d",
     "scripts/seed.mjs": "e78dd7655ea96fe509fe11ae1c7052655fb49cfe06e54b52362ad05a511dc47b",
     "src/ai.ts": "043a098d62947f491e37e3933ba512da3a9a976bb5c20a00420b34ce07b5ea7c",
