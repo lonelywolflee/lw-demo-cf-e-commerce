@@ -46,4 +46,4 @@ else
   echo "✓ AI Search ${INSTANCE}를 만들었습니다 (데이터 소스: R2 ${BUCKET})"
 fi
 
-echo "색인은 2분쯤 걸리고 그동안 다음 단계를 진행해도 됩니다. 끝났는지 보려면 ./ops/verify.sh"
+echo "색인은 백그라운드에서 진행되니 기다리지 말고 다음 단계를 진행하세요. 끝났는지 보려면 ./ops/verify.sh"

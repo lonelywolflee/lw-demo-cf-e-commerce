@@ -16,7 +16,7 @@
     "migrations/0001_init.sql": "e4d4f10e2106f597170fe9682b49cd7682fdb8295dbb8ea5d26d2f19f46ac3cc",
     "ops/README.md": "1bac89126b9433044fc3feb7ffdb80cdb88127c01ef149e95a338a541e05e2ad",
     "ops/common.sh": "93ac3517b360c226da9036e087582b5e1e7b18307ae78db1e7f828c1aa9db7d8",
-    "ops/setup-account.sh": "6ca91c0354991edd8f30205d5ddad6b15c6b3a249d4241732a4f1ca8b70da034",
+    "ops/setup-account.sh": "5653422fe817db3222065759f5cbf7ce1bae8819e574cd0bac95b1a0a3518f83",
     "ops/setup-all.sh": "84e17df8324a013ebc178742f524bf1511b8223533d15bf7f58a4a5d372d62bd",
     "ops/teardown.sh": "5b4c728b105d48244c459930a8f4d412cc151fd8099118d3716c8d40607f26ba",
     "ops/verify.sh": "e8b7792db3427b7bc5ab072b7392040ec813e5dc94c9d1464b28c715a69ee196",
