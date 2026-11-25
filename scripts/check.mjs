@@ -144,7 +144,7 @@ function checkBlocks() {
   }
   // 블록 A가 두 파일에서 다르다는 안내가 이미 나갔으면 겹쳐서 말하지 않습니다.
   if (state.B && state["A 설정"] === false) {
-    fail("wrangler.jsonc", "블록 B는 블록 A가 켜져 있어야 합니다. 블록 A도 두 파일에서 풀어 주세요 (README 3단계)");
+    fail("wrangler.jsonc", "블록 B는 블록 A가 켜져 있어야 합니다. 블록 A도 두 파일에서 풀어 주세요 (3단계)");
   }
   if (state.A && state.B) return "블록 A·B 켜짐(4단계)";
   if (state.A) return "블록 A 켜짐(3단계)";

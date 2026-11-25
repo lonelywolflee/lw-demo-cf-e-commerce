@@ -11,7 +11,7 @@ export async function handleChat(env: Env, input: ChatInput): Promise<ChatReply>
   // ▼ 블록 A (3단계): 아래 줄 맨 앞의 // 를 지우세요
   // return answerWithModel(env, input);
 
-  return { reply: "AI 상담원 준비 중이에요. README 3단계에서 연결해 주세요.", route: "fixed", sources: [] };
+  return { reply: "AI 상담원 준비 중이에요. 3단계에서 연결해 주세요.", route: "fixed", sources: [] };
 }
 
 // 브라우저가 보내는 것: 이번 질문과 지금까지의 대화
