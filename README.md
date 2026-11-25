@@ -50,7 +50,7 @@ npm run deploy
 
 ### 4단계 준비: 정책 문서 올리기
 
-4단계에서 AI 상담원이 근거로 삼을 오렌지마켓 공통 규정 5종([docs/policies/](docs/policies/))을 지금 내 계정에 올려 둡니다. 문서를 색인하는 데 2분쯤 걸려서 미리 해 두는 것입니다.
+4단계에서 AI 상담원이 근거로 삼을 오렌지마켓 공통 규정 5종([docs/policies/](docs/policies/))을 지금 내 계정에 올려 둡니다. 문서를 색인하는 데 시간이 걸려서 미리 해 두는 것입니다.
 
 먼저 AI Search가 R2의 문서를 읽을 때 쓰는 **서비스 API 토큰**을 만듭니다. 계정마다 한 번만 하면 됩니다. [Cloudflare 대시보드](https://dash.cloudflare.com)에서 **AI > AI Search**로 들어가 **API Tokens** 화면을 엽니다(주소는 `https://dash.cloudflare.com/<Account ID>/ai/ai-search/tokens`). **No API tokens found**가 보이면 **Create Token**을 눌러 토큰을 만들고, 목록에 하나 보이면 됩니다. 이미 토큰이 있으면 건너뜁니다. 이 토큰을 지우면 색인이 멈추니 삭제하지 마세요.
 
@@ -124,7 +124,7 @@ npm run deploy
 
 > 답의 근거는 우리 문서입니다.
 
-1단계에서 올린 오렌지마켓 공통 규정 5종([docs/policies/](docs/policies/))이 내 계정의 R2에 있고, AI Search 인스턴스 `orange-search`가 이 문서들을 색인해 두었습니다. 1단계의 `npm run setup:docs`를 건너뛰었다면 지금 실행하고 2분쯤 기다리세요.
+1단계에서 올린 오렌지마켓 공통 규정 5종([docs/policies/](docs/policies/))이 내 계정의 R2에 있고, AI Search 인스턴스 `orange-search`가 이 문서들을 색인해 두었습니다. 1단계의 `npm run setup:docs`를 건너뛰었다면 지금 실행하고, `./ops/verify.sh`로 색인이 끝났는지 확인한 뒤 진행하세요.
 
 이번에도 주석을 두 줄 풉니다. 각 줄 위에 `▼ 블록 B` 표시가 있습니다.
 

@@ -7,7 +7,7 @@ README 4단계(블록 B)는 계정에 아래 두 리소스가 **이미 있어야
 | R2 버킷 | `orange-docs` | `docs/policies/*.md` 5종 |
 | AI Search 인스턴스 | `orange-search` | 데이터 소스 = R2 `orange-docs`, `default` namespace |
 
-**README 1단계에서 `npm run setup:docs`로 만듭니다.** 이 명령은 `./ops/setup-account.sh`를 실행합니다. 로그인한 wrangler로 돌기 때문에 Cloudflare API 토큰을 따로 넣을 필요가 없고, 색인은 2분쯤 걸려 4단계 전에 끝납니다. 다만 계정에 **AI Search 서비스 API 토큰**은 한 번 만들어 두어야 합니다(아래 준비물).
+**README 1단계에서 `npm run setup:docs`로 만듭니다.** 이 명령은 `./ops/setup-account.sh`를 실행합니다. 로그인한 wrangler로 돌기 때문에 Cloudflare API 토큰을 따로 넣을 필요가 없고, 색인은 백그라운드에서 진행되어 보통 4단계 전에 끝납니다. 다만 계정에 **AI Search 서비스 API 토큰**은 한 번 만들어 두어야 합니다(아래 준비물).
 
 아래는 스크립트를 직접 실행하거나, 여러 계정을 한 번에 준비할 때의 안내입니다.
 
